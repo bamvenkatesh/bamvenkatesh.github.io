@@ -104,7 +104,7 @@
 
             for( var i = 0; i < vertices.length; i++ ) {
                 var v = vertices[i];
-                var r = v.rotateX(xangle).rotateY(yangle).rotateZ(zangle);
+                var r = v.rotateX(xangle).rotateY(yangle);
                 var p = r.project(1000,600,200,4);
                 t.push(p)
             }
@@ -147,8 +147,8 @@
 
         let touchStart = undefined, startX, startY, deltaX, deltaY, draw, startXAngle, startYAngle;
         let angleperUnit = 400/(3*180), xvelocity, yvelocity;
-        let timeToRotate = 0, curTime = 0;
-        let X = 0.009;
+        let timeToRotate = 0,timeToRotateX = 0,timeToRotateY = 0, curTime = 0;
+        let X = 0.009, Y = 0.001;
 
         function handleCubeTouchStart(e){
             startX = e.touches ? e.touches[0].pageX : e.pageX;
@@ -186,8 +186,10 @@
             if(deltaX > 10)
                 xvelocity = (deltaX/time);
 
-            if(deltaY > 10)
+            if(deltaY > 10){
                 yvelocity = (deltaY/time);
+	//			xvelocity = 0;
+			}
 
             touchStart = undefined;
             curTime = 0;
@@ -197,7 +199,10 @@
             
             startXAngle = xangle;
             startYAngle = yangle;
-            timeToRotate = Math.max( xvelocity / X, yvelocity / X);
+        //    timeToRotate = Math.max( xvelocity / X, yvelocity / X);
+            timeToRotateX = xvelocity / X;
+            timeToRotateY = yvelocity / X;
+			timeToRotate = Math.max(timeToRotateX,timeToRotateY);
             rotate();
 
             draw = true;
@@ -215,10 +220,10 @@
 
             curTime += 10;
             
-            if(yvelocity)
+            if(yvelocity && curTime <= timeToRotateY)
                 xangle = (startXAngle + (yvelocity*curTime - 0.5*X*curTime*curTime) * angleperUnit)%360;
             
-            if(xvelocity)
+            if(xvelocity && curTime <= timeToRotateX)
                 yangle = (startYAngle - (xvelocity*curTime - 0.5*X*curTime*curTime) * angleperUnit)%360;
 
             draw = true;
