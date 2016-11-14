@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
-    <title>HTML5 Experiment: A Rotating Solid Cube</title>
+    
+	<title>HTML5 Experiment: A Rotating Solid Cube</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 <body>
     <canvas id="thecanvas" width="2000" height="1000">
@@ -144,9 +146,9 @@
         canvasElem.addEventListener('mouseup',handleCubeTouchEnd);
 
         let touchStart = undefined, startX, startY, deltaX, deltaY, draw, startXAngle, startYAngle;
-        let angleperUnit = 600/(4*180), xvelocity, yvelocity;
+        let angleperUnit = 400/(3*180), xvelocity, yvelocity;
         let timeToRotate = 0, curTime = 0;
-        let X = 0.01;
+        let X = 0.009;
 
         function handleCubeTouchStart(e){
             startX = e.touches ? e.touches[0].pageX : e.pageX;
@@ -170,14 +172,7 @@
 
             yangle = (startYAngle - deltaX * angleperUnit)%360;
             xangle = (startXAngle + deltaY * angleperUnit)%360;
-			let time = (new Date() - touchStart) || 1;
-			
-			if(xvelocity<deltaX/time)
-			xvelocity = deltaX/time;
-			
-			if(yvelocity<deltaY/time)
-			yvelocity = deltaY/time;
-			
+
             draw = true;
             window.requestAnimationFrame(callback);
         }
@@ -188,53 +183,38 @@
             deltaX = deltaX || 0;
             deltaY = deltaY || 0;
 
-            if(deltaX > 10){
-				if(xvelocity<deltaX/time)
-					xvelocity = deltaX/time;
-			}
+            if(deltaX > 10)
+                xvelocity = (deltaX/time);
 
-            if(deltaY > 10){
-				if(yvelocity<deltaY/time)
-					yvelocity = deltaY/time;
-			}
-			
+            if(deltaY > 10)
+                yvelocity = (deltaY/time);
 
             touchStart = undefined;
             curTime = 0;
-			
-			//friction code might come here.
+
             if( (deltaX < 10 && deltaY < 10) || (Math.abs(xvelocity) < 0.8 && Math.abs(yvelocity) < 0.8))
                 return;
             
             startXAngle = xangle;
             startYAngle = yangle;
-			
-			
-            timeToRotate = Math.max( xvelocity / X, yvelocity / X); // equation of motion : v= u+at; >> t = v/a;
+            timeToRotate = Math.max( xvelocity / X, yvelocity / X);
             rotate();
 
             draw = true;
             window.requestAnimationFrame(callback);
         }
-		let decelerate = 0;
+
         function rotate(){
             if(timeToRotate === 0 || curTime >= timeToRotate){
-				if(curTime < timeToRotate && timeToRotate != 0){
-					decelerate = 1;
-					break;
-				}
-				decelerate = 0;
                 curTime = 0;
                 timeToRotate = 0;
                 xvelocity = 0;
                 yvelocity = 0;
-				
                 return;
             }
 
-            curTime += 10; // for every 10 millisecond canvas will print
+            curTime += 10;
             
-			//equation of motion s = a*t^2 .. converting the distance travelled into angle.
             if(yvelocity)
                 xangle = (startXAngle + (yvelocity*curTime - 0.5*X*curTime*curTime) * angleperUnit)%360;
             
@@ -243,7 +223,7 @@
 
             draw = true;
             window.requestAnimationFrame(callback);
-            setTimeout(rotate, 1000);
+            setTimeout(rotate, 10);
         }
 
         function callback(){
