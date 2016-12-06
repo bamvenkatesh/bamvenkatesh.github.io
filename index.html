@@ -1,71 +1,548 @@
-<!DOCTYPE HTML>
-<!-- Website template by freewebsitetemplates.com -->
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi">
-	<title>Zerotype Website Template</title>
-	<link rel="stylesheet" href="css/style.css" type="text/css">
-	<script type="text/javascript">
-		
-		var scrollTimer = undefined;
+  <meta charset="UTF-8">
+  <meta name="author" content="Manga Venkatesh">
+  <title>Venkatesh</title>
+  
+  <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
 
-		function scrollToPage(){
-			var homepage = document.getElementById('homepage');
-			if( homepage.getBoundingClientRect().top > 0 )
-				return;
-			
-			var instrpage = document.getElementById('instrpage');
-			var aboutpage = document.getElementById('aboutpage');
-			var contactpage = document.getElementById('contactpage');
-		}
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-		function checkScrollEnd(e){
-			if(scrollTimer){
-				clearTimeout(scrollTimer);
-				scrollTimer = undefined;
-			}
+  <style>
+    .ihoverable-white{
+        transition: background-color 0.5s;
+    }
 
-			scrollTimer = setTimeout(scrollToPage,300);
-		}
-	</script>
+    .ihoverable-white:hover {
+        background-color: white !important;
+    }
+
+    .navbar-fixed{
+      z-index: 9999;
+    }
+
+    .nav-wrapper{
+        padding: 0 2rem;
+    }
+
+    nav .brand-logo{
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+
+    .nav-item{
+      font-size: 1.2rem;
+    }
+
+    nav ul a{
+      color: black;
+    }
+
+    html, body{
+      height:100%;
+    }
+
+    /*.staggerred-list{
+      opacity: 0;
+    }*/
+
+    footer.page-footer{
+      background-color: rgba(51, 51, 51, 0.8);
+    }
+
+    .footericon{
+        width:35px;
+        height: 35px;
+        margin: 30px 10px;
+    }
+
+    #about{
+      padding: 50px 0px;
+      font-size: 30px;
+    }
+
+    #about p{
+      font-size: 16px;
+    }
+
+    .card .card-reveal{
+      overflow: hidden;
+    }
+
+    .side-nav{
+      padding-top: 60px;
+      width: 100%;
+      transform: translateX(0);
+      transition: opacity 0.5s;
+    }
+
+    .slider .slides, .slider .slides li{
+      background-color: transparent;
+    }
+
+    .slider .indicators .indicator-item{
+      height: 14px;
+      width: 14px;
+    }
+
+    .ihide{
+      opacity:0;
+      visibility: hidden;
+    }
+
+    /*#f0efed*/
+
+  </style>
 </head>
 <body>
+  
+  <div class="navbar-fixed">
+    <nav>
+      <div class='nav-wrapper grey lighten-5 flow-text'>
+        <a href="#" class="brand-logo grey-text text-darken-4" onclick="handleHeaderClick()">VENKATESH BODDU</a>
+        <ul id='nav-projects' class='nav-item right grey-text text-darken-3'>
+          <li><a href='#projects' onclick="handleHeaderClick()">Projects</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  
+  <div id='about' class="container">
+    - Hello World <br />
+    <p>I'm Venkatesh, a software developer from Bangalore, India. I love creating apps to provide useful and simple solutions to the complex challenges around us.</p>
+  </div>
 
-	<div id='mob_site'>
-		<div id='header'>
-			<div id='menu'>
-			</div>
-			<div id='title'>
-				App Title
-			</div>
-		</div>
-		<div id='containerWrapper'>
-			<div id='container'>
-				<div id='homepage' class='page'>
-					<div id="dlapkcontainer">
-						<div id='dlbtn'>	</div>
-						<div id='dldesc'>
-							Follow below instructions to install the App
-						</div>
-					</div>
-				</div>
-				<div id='instrpage' class='page'>
-					<div class='pagetitle'> Instructions </div>
-				</div>
-				<div id='aboutpage' class='page'>
-					<div class='pagetitle'> About </div>
-				</div>
-				<div id='contactpage' class='page'>
-					<div class='pagetitle'> Contact Us </div>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div id='projects' class='section scrollspy'>
 
-	<script type="text/javascript">
-		var containerWrapper = document.getElementById('containerWrapper');
-		containerWrapper.addEventListener('scroll', checkScrollEnd);
-	</script>	
+    <ul class="row">
+      <li class="col s12 m4 l4 valign-wrapper center-align staggerred-list">
+        <div class="card grey lighten-4 ihoverable-white z-depth-0" style="width:100%;height:200px">
+            <div class="card-image waves-effect waves-block">
+              <div class='activator' style="background-image:url('images/zaptatkal.png');background-repeat:no-repeat;background-position:center;width:100%;height:200px;'"></div>
+            </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">ZapTatkal<i id='zaptatkal-card-close' class="card-close material-icons right">close</i></span>
+            <p>A Chrome Extension to book TATKAL train tickets in less than 15 seconds.</p>
+            <div class="card-action right-align">
+                <a href="#" data-activates="zaptatkal-slide-out" data-cardclose='zaptatkal-card-close' class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li style="" class="col s12 m4 l4  center-align staggerred-list">
+        <div class="card ihoverable-white grey lighten-4 z-depth-0" style="width:100%;height:200px">
+            <div class="card-image waves-effect waves-block" style='height:100%'>
+              <div class='activator center-align' style="background-image:url('images/tringtring.png');background-repeat:no-repeat;background-position:center;height:100%;'"></div>
+            </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">TringTring<i id='tringtring-card-close' class="card-close material-icons right">close</i></span>
+            <p>This Android App helps in finding your mis-placed phone when it is in silent mode by resetting the Ringer volume.</p>
+            <div class="card-action right-align">
+              <a href="#" data-activates="tringtring-slide-out" data-cardclose='tringtring-card-close' class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li style="" class="col s12 m4 l4 valign-wrapper  center-align staggerred-list">
+        <div class="card ihoverable-white grey lighten-4 z-depth-0" style="width:100%;height:200px">
+          <div class='waves-effect waves-block waves-light'>
+            <div class="card-image">
+              <div class='activator' style="background-image:url('images/toffe.png');background-repeat:no-repeat;background-position:center;width:100%;height:200px;'"></div>
+            </div>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Toffe<i id='toffe-card-close' class="card-close material-icons right">close</i></span>
+            <p>Project Toffe is a low cost offline Media streaming service.</p>
+            <div class="card-action right-align">
+              <a href="#" data-activates="toffe-slide-out" data-cardclose='toffe-card-close' class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+
+
+    <ul class="row">
+      <li style="" class="col s12 m4 l4 valign-wrapper  center-align staggerred-list">
+        <div class="card ihoverable-white grey lighten-4 z-depth-0" style="width:100%;height:200px">
+          <div class='waves-effect waves-block waves-light'>
+            <div class="card-image">
+              <div class='activator' style="background-image:url('images/musiccontrol.png');background-repeat:no-repeat;background-position:center; width:100%;height:200px;'"></div>
+            </div>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Music Control<i id='musiccontrol-card-close' class="card-close material-icons right">close</i></span>
+            <p>This Android application helps in changing Tracks with Volume Buttons.</p>
+            <div class="card-action right-align">
+              <a href="#" data-activates="musiccontrol-slide-out" data-cardclose='musiccontrol-card-close' class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li style="" class="col s12 m4 l4 valign-wrapper  center-align staggerred-list">
+        <div class="card ihoverable-white grey lighten-4 z-depth-0" style="width:100%;height:200px">
+          <div class='waves-effect waves-block waves-light'>
+            <div class="card-image">
+              <div class='activator' style="background-image:url('images/playlistshare.png');background-repeat:no-repeat;background-position:center;width:100%;height:200px;'"></div>
+            </div>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Share Playlist<i id='shareplaylist-card-close' class="card-close material-icons right">close</i></span>
+            <p>An Android application, which helps in sharing the music with high speed among the group.</p>
+            <div class="card-action right-align">
+              <a href="#" data-activates="shareplaylist-slide-out" data-cardclose='shareplaylist-card-close' class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li style="" class="col s12 m4 l4 valign-wrapper  center-align staggerred-list">
+        <div class="card ihoverable-white grey lighten-4 z-depth-0" style="width:100%;height:200px">
+          <div class='waves-effect waves-block waves-light'>
+            <div class="card-image">
+              <div class='activator' style="background-image:url('images/contactsmerger.png');background-repeat:no-repeat;background-position:center;width:100%;height:200px;'"></div>
+            </div>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Contacts Merger<i id='contactsmanager-card-close' class="card-close material-icons right">close</i></span>
+            <p>An Android App to merge your duplicate/similar contacts.</p>
+            <div class="card-action right-align">
+              <a href="#" data-activates="contactsmerger-slide-out" data-cardclose='contactsmanager-card-close' class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <ul class="row">
+
+      <li style="" class="col s12 m4 l4 push-l2 valign-wrapper  center-align staggerred-list">
+        <div class="card ihoverable-white grey lighten-4 z-depth-0" style="width:100%;height:200px">
+          <div class='waves-effect waves-block waves-light'>
+            <div class="card-image">
+              <div class='activator' style="background-image:url('images/perforce.png');background-repeat:no-repeat;background-position:center;width:100%;height:200px;'"></div>
+            </div>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Perforce<i id='perforce-card-close' class="card-close material-icons right">close</i></span>
+            <p>With Perforce VSCode extension, you can perform basic perforce operations within VSCode.</p>
+            <div class="card-action right-align">
+              <a href="#" data-activates="perforce-slide-out" data-cardclose='perforce-card-close' class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li style="" class="col s12 m4 l4 push-l2 valign-wrapper  center-align staggerred-list">
+        <div class="card ihoverable-white grey lighten-4 z-depth-0" style="width:100%;height:200px">
+          <div class='waves-effect waves-block waves-light'>
+            <div class="card-image">
+              <div class='activator' style="background-image:url('images/filetemplates.png');background-repeat:no-repeat;background-position:center;width:100%;height:200px;'"></div>
+            </div>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">File Templates<i id='filetemplates-card-close' class="card-close material-icons right">close</i></span>
+            <p>This VSCode extension helps in creating files easily from your defined templates.</p>
+            <div class="card-action right-align">
+              <a href="#" data-activates="filetemplates-slide-out" data-cardclose='filetemplates-card-close' class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+
+  <div id="zaptatkal-slide-out" class="side-nav">
+      <div style='width:100%;height:200px;' class="valign-center">
+        <div class='slide-out-header' style="float:left;display:inline-block;background-image:url('images/zaptatkal.png');background-repeat:no-repeat;background-position:center; width:500px;height:200px;'"></div>
+        <div class="slide-out-desc" style="padding-top:20px">
+          <p>Easy to Use ,Fully automated Extension to book IRCTC tickets ,Specially designed for TATKAL</p>
+          <p>
+            An Extension to book TATKAL train tickets in Less than 15 seconds.
+              Nothing's more precious than time.This fact can't be experienced better than while booking a Tatkal ticket.
+              Every second counts in tatkal booking.To make tatkal booking more reliable and to give you a better chance to get a tatkal ticket ZapTatkal was designed.</p>
+        </div>
+      </div>
+      <div class="slider">
+        <ul class="slides">
+          <li>
+            <div style="background-image:url('images/zaptatkal/1.png');background-size:contain; background-repeat:no-repeat;background-position:center; width:100%;height:100%;'"></div>
+          </li>
+          <li>
+            <div style="background-image:url('images/zaptatkal/2.png');background-size:contain;background-repeat:no-repeat;background-position:center; width:100%;height:100%;'"></div>
+          </li>
+          <li>
+            <div style="background-image:url('images/zaptatkal/3.png');background-size:contain;background-repeat:no-repeat;background-position:center; width:100%;height:100%;'"></div>
+          </li>
+          <li>
+            <div style="background-image:url('images/zaptatkal/4.png');background-size:contain;background-repeat:no-repeat;background-position:center; width:100%;height:100%;'"></div>
+          </li>
+          <li>
+            <div style="background-image:url('images/zaptatkal/5.png');background-size:contain;background-repeat:no-repeat;background-position:center; width:100%;height:100%;'"></div>
+          </li>
+          <li>
+            <div style="background-image:url('images/zaptatkal/6.png');background-size:contain;background-repeat:no-repeat;background-position:center; width:100%;height:100%;'"></div>
+          </li>
+        </ul>
+      </div>
+  </div>
+
+  <div id="tringtring-slide-out" class="side-nav">
+      <div style='width:100%;height:200px;' class="valign-center">
+        <div class='slide-out-header' style="float:left;display:inline-block;background-image:url('images/tringtring.png');background-repeat:no-repeat;background-position:center; width:500px;height:200px;'"></div>
+        <div class="slide-out-desc" style="padding-top:20px">
+          <p>TringTring helps in finding your phones when kept in Silent Mode.</p>
+          <h5>How it works :</h5>
+          <p>
+             * Configure TringTring with a custom Message, volume to reset and the phone number to accept messages from. <br/>
+             * When the service is ON, TringTring checks for the custom message from the configured phone number and resets the phone Ringer volume to the new volume level set in the App.
+        </div>
+      </div>
+      <div class="slider">
+        <ul class="slides">
+          <li>
+            <div style="background-image:url('images/tringtring/tringtring1.png');background-size:contain; background-repeat:no-repeat;background-position:center; width:100%;height:100%;'"></div>
+          </li>
+          <li>
+            <div style="background-image:url('images/tringtring/tringtring2.png');background-size:contain;background-repeat:no-repeat;background-position:center; width:100%;height:100%;'"></div>
+          </li>
+          <li>
+            <div style="background-image:url('images/tringtring/tringtring3.png');background-size:contain;background-repeat:no-repeat;background-position:center; width:100%;height:100%;'"></div>
+          </li>
+        </ul>
+      </div>
+  </div>
+
+  <div id="toffe-slide-out" class="side-nav">
+      <div style='width:100%;height:200px;' class="valign-center">
+        <div class='slide-out-header' style="float:left;display:inline-block;background-image:url('images/toffe.png');background-repeat:no-repeat;background-position:center; width:500px;height:200px;'"></div>
+        <div class="slide-out-desc" style="padding-top:20px">
+          <p>Toffe, is a low cost offline Entertainment Service.</p>
+          <p>
+            Watch the latest TV serials, movies and listen to music on your Android device. 
+            Toffe is a streaming app that lets you watch your favourite shows and movies without copying them to your device.
+            With Toffe, having a low memory phone is not a problem anymore.
+        </div>
+      </div>
+      <div class="slider">
+        <ul class="slides">
+          <li>
+            <div style="background-image:url('images/toffe/toffe1.png');background-size:contain; background-repeat:no-repeat;background-position:center; width:100%;height:100%;'"></div>
+          </li>
+          <li>
+            <div style="background-image:url('images/toffe/toffe2.png');background-size:contain;background-repeat:no-repeat;background-position:center; width:100%;height:100%;'"></div>
+          </li>
+          <li>
+            <div style="background-image:url('images/toffe/toffe3.png');background-size:contain;background-repeat:no-repeat;background-position:center; width:100%;height:100%;'"></div>
+          </li>
+          <li>
+            <div style="background-image:url('images/toffe/toffe4.png');background-size:contain;background-repeat:no-repeat;background-position:center; width:100%;height:100%;'"></div>
+          </li>
+          <li>
+            <div style="background-image:url('images/toffe/toffe5.png');background-size:contain;background-repeat:no-repeat;background-position:center; width:100%;height:100%;'"></div>
+          </li>
+        </ul>
+      </div>
+  </div>
+
+  <div id="contactsmerger-slide-out" class="side-nav">
+      <div style='width:100%;height:200px;' class="valign-center">
+        <div class='slide-out-header' style="float:left;display:inline-block;background-image:url('images/contactsmerger.png');background-repeat:no-repeat;background-position:center; width:500px;height:200px;'"></div>
+        <div class="slide-out-desc" style="padding-top:20px">
+          <p><br/>
+            ContactsMerger will scan all contacts and let you delete all duplicate contacts with similar numbers, names and email address. </p>
+        </div>
+      </div>
+      <div class="slider">
+        <ul class="slides">
+          <li>
+            <div style="background-image:url('images/mergecontacts/mergecontacts1.png');background-size:contain; background-repeat:no-repeat;background-position:center; width:100%;height:100%;'"></div>
+          </li>
+          <li>
+            <div style="background-image:url('images/mergecontacts/mergecontacts2.png');background-size:contain;background-repeat:no-repeat;background-position:center; width:100%;height:100%;'"></div>
+          </li>
+          <li>
+            <div style="background-image:url('images/mergecontacts/mergecontacts3.png');background-size:contain;background-repeat:no-repeat;background-position:center; width:100%;height:100%;'"></div>
+          </li>
+        </ul>
+      </div>
+  </div>
+
+  <div id="perforce-slide-out" class="side-nav">
+      <div style='width:100%;height:200px;' class="valign-center">
+        <div class='slide-out-header' style="float:left;display:inline-block;background-image:url('images/perforce.png');background-repeat:no-repeat;background-position:center; width:500px;height:200px;'"></div>
+        <div class="slide-out-desc" style="padding-top:20px">
+          <p>Perforce is a VSCode extension.</p>
+          <p>Perforce extension enables the version control for VSCode. 
+            With this extension you can perform basic perforce operations right within VSCode.</p>
+        </div>
+      </div>
+      <div class="slider">
+        <ul class="slides">
+          <li>
+            <div style="background-image:url('images/perforce/perforce1.png');background-size:contain; background-repeat:no-repeat;background-position:center; width:600px;height:100%;margin:0 auto;"></div>
+          </li>
+          <li>
+            <div style="background-image:url('images/perforce/perforce2.png');background-size:contain;background-repeat:no-repeat;background-position:center; width:600px;height:100%;margin:0 auto;"></div>
+          </li>
+          <li>
+            <div style="background-image:url('images/perforce/perforce3.png');background-size:contain;background-repeat:no-repeat;background-position:center; width:600px;height:100%;margin:0 auto;"></div>
+          </li>
+          <li>
+            <div style="background-image:url('images/perforce/perforce4.png');background-size:contain;background-repeat:no-repeat;background-position:center; width:600px;height:100%;margin:0 auto;"></div>
+          </li>
+        </ul>
+      </div>
+  </div>
+
+  <div id="filetemplates-slide-out" class="side-nav">
+      <div style='width:100%;height:200px;' class="valign-center">
+        <div class='slide-out-header' style="float:left;display:inline-block;background-image:url('images/filetemplates.png');background-repeat:no-repeat;background-position:center; width:500px;height:200px;'"></div>
+        <div class="slide-out-desc" style="padding-top:20px">
+          <p>This is a VSCode extension to create File Templates.</p>
+          <p>
+            File Templates extension comes with file templates for Javascript, CSS, SASS, HTML, etc... by default to help you start with new files. <br/>
+            Also add Author name and Date of creation to the file, by adding ${AUTHOR} and ${DATE} tokens to your template.
+        </div>
+      </div>
+      <div class="slider">
+        <ul class="slides">
+          <li>
+            <div style="background-image:url('images/filetemplates/filetemplates1.png');background-size:contain; background-repeat:no-repeat;background-position:center; width:600px;height:100%;margin:0 auto;"></div>
+          </li>
+          <li>
+            <div style="background-image:url('images/filetemplates/filetemplates2.png');background-size:contain;background-repeat:no-repeat;background-position:center; width:600px;height:100%;margin:0 auto;"></div>
+          </li>
+          <li>
+            <div style="background-image:url('images/filetemplates/filetemplates3.png');background-size:contain;background-repeat:no-repeat;background-position:center; width:600px;height:100%;margin:0 auto;"></div>
+          </li>
+        </ul>
+      </div>
+  </div>
+
+  <div id="musiccontrol-slide-out" class="side-nav">
+      <div style='width:100%;height:200px;' class="valign-center">
+        <div class='slide-out-header' style="float:left;display:inline-block;background-image:url('images/musiccontrol.png');background-repeat:no-repeat;background-position:center; width:500px;height:200px;'"></div>
+        <div class="slide-out-desc" style="padding-top:20px">
+          <p>Music control is an Android Application, which helps you to change music track using your volume buttons when your device is locked. <br/>
+             On start of music player, a small music control overlays on top to indicate that MusicControl is running. 
+             You can stop the service at any time, by simply dragging the overlay control to the bottom of screen.
+          </p>
+        </div>
+      </div>
+      <div class="slider">
+        <ul class="slides">
+          <li>
+            <div style="background-image:url('images/musiccontrol/musiccontrol1.png');background-size:contain; background-repeat:no-repeat;background-position:center; width:100%;height:100%;'"></div>
+          </li>
+          <li>
+            <div style="background-image:url('images/musiccontrol/musiccontrol2.png');background-size:contain;background-repeat:no-repeat;background-position:center; width:100%;height:100%;'"></div>
+          </li>
+          <li>
+            <div style="background-image:url('images/musiccontrol/musiccontrol3.png');background-size:contain;background-repeat:no-repeat;background-position:center; width:100%;height:100%;'"></div>
+          </li>
+        </ul>
+      </div>
+  </div>
+
+  <div id="shareplaylist-slide-out" class="side-nav">
+      <div style='width:100%;height:200px;' class="valign-center">
+        <div class='slide-out-header' style="float:left;display:inline-block;background-image:url('images/playlistshare.png');background-repeat:no-repeat;background-position:center; width:500px;height:200px;'"></div>
+        <div class="slide-out-desc" style="padding-top:20px">
+          <p>
+            SharePlaylist is an Android application. This helps in sharing music among the devices with high speed.<br/>
+            This App gives you the potential to share the playlists directly with others, rather than copying songs individually and re-cerating the playlists on other devices.
+          </p>
+        </div>
+      </div>
+      <div class="slider">
+        <ul class="slides">
+          <li>
+            <div style="background-image:url('images/playlistshare/playlistshare1.png');background-size:contain; background-repeat:no-repeat;background-position:center; width:100%;height:100%;'"></div>
+          </li>
+          <li>
+            <div style="background-image:url('images/playlistshare/playlistshare2.png');background-size:contain;background-repeat:no-repeat;background-position:center; width:100%;height:100%;'"></div>
+          </li>
+          <li>
+            <div style="background-image:url('images/playlistshare/playlistshare3.png');background-size:contain;background-repeat:no-repeat;background-position:center; width:100%;height:100%;'"></div>
+          </li>
+          <li>
+            <div style="background-image:url('images/playlistshare/playlistshare4.png');background-size:contain;background-repeat:no-repeat;background-position:center; width:100%;height:100%;'"></div>
+          </li>
+          </li>
+        </ul>
+      </div>
+  </div>
+
+  <footer class='page-footer'>
+    <div class="container center-align">
+      <a href="https://www.linkedin.com/in/venkatesh-boddu-86614253" target="_blank"><img src='images/linkedin.png' class='footericon'/></a>
+      <a href="https://github.com/bamvenkatesh/" target="_blank"><img src='images/github.png' class='footericon'/></a>
+      <a href="https://bitbucket.org/bamvenkatesh/" target="_blank"><img src='images/bitbucket.png' class='footericon'/></a>
+    </div>
+  </footer>
+    
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="js/materialize.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.scrollspy').scrollSpy();
+
+
+      // var options = [
+      //   {selector: '.row1', offset: 0, callback: (el) => {
+      //       Materialize.showStaggeredList($(el));
+      //     } 
+      //   },
+      //   {selector: '.row2', offset: 0, callback: (el) => {
+      //       Materialize.showStaggeredList($(el));
+      //     } 
+      //   },
+      //   {selector: '.row3', offset: 0, callback: (el) => {
+      //       Materialize.showStaggeredList($(el));
+      //     } 
+      //   } 
+      // ];
+      // Materialize.scrollFire(options);
+
+      $('.button-collapse').click(function(){
+          $('.side-nav').addClass('ihide');
+          let id = $(this).data('activates');
+          $('#' + id).removeClass('ihide');
+
+          let cardCloseId = $(this).data('cardclose');
+          $('#' + cardCloseId).click();
+      });
+
+      // $('.button-collapse').sideNav({
+      //     menuWidth: '100%', // Default is 240
+      //     edge: 'right', // Choose the horizontal origin
+      //     closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+      //   }
+      // );
+
+
+      $('.slider').slider({Interval:2000});
+
+        handleHeaderClick();
+    }); 
+
+    function handleHeaderClick(){
+      $('.side-nav').addClass('ihide');
+      hideCardReveals();
+    }
+
+    function hideCardReveals(){
+      $('.card-close').click();
+    }
+
+  </script>
 </body>
 </html>
